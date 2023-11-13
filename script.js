@@ -10,13 +10,13 @@ const yearSpan = document.querySelector("#years-value");
 const monthSpan = document.querySelector("#months-value");
 const daySpan = document.querySelector("#days-value");
 
+const ageInput = document.querySelector("#year");
+const monthInput = document.querySelector("#month");
+const dayInput = document.querySelector("#day");
+
 submitBtn.addEventListener("click", ()=> {
 
-    const ageInput = document.querySelector("#year");
-
     let userAge = actualAge - ageInput.value;
-
-    const monthInput = document.querySelector("#month");
 
     let userMonth = "";
 
@@ -27,12 +27,14 @@ submitBtn.addEventListener("click", ()=> {
         userMonth = actualMonth - monthInput.value;
     }
 
-    const dayInput = document.querySelector("#day");
-
     const userDay = 31 - (dayInput.value - actualDay);
 
 
     yearSpan.innerHTML = userAge;
     monthSpan.innerHTML = userMonth;
     daySpan.innerHTML = userDay;
+})
+
+submitBtn.addEventListener("dblclick", ()=> {
+    window.location.reload();
 })
