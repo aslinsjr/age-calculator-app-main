@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Age calculator app</title>
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap" rel="stylesheet">
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <form class="form-container">
+      <div class="input-container">
+        <label for="day">Day</label>
+        <input 
+        class="date-input" 
+        type="text" 
+        name="day" 
+        id="day" 
+        placeholder="DD"
+        minlength="2" maxlength="2"
+        required
+        />
+        <span class="error"></span>
+      </div>
+      <div class="input-container">
+        <label for="month">Month</label>
+        <input 
+        class="date-input" 
+        type="text" 
+        name="month" 
+        id="month" 
+        placeholder="MM"
+        minlength="2" maxlength="2"
+        required
+        />
+        <span class="error"></span>
+      </div>
+      <div class="input-container">
+        <label for="year">Year</label>
+        <input 
+        class="date-input" 
+        type="text" 
+        name="year" 
+        id="year" 
+        placeholder="YYYY"
+        minlength="4" maxlength="4"
+        required
+        />
+        <span class="error"></span>
+      </div>
+    </form>
+    <div class="separator-container">
+      <div class="line"></div>
+      <div class="arrow-container">
+        <img src="assets/images/icon-arrow.svg" alt="Arrow Icon">
+      </div>
+    </div>
+    <div class="result-container">
+      <p class="results">
+        <span class="result-span" id="years-value">--</span> years</p>
+      <p class="results">
+        <span class="result-span" id="months-value">--</span> months</p>
+      <p class="results">
+        <span  class="result-span" id="days-value">--</span> days</p>
+    </div>
+  </main>
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://www.linkedin.com/in/alexandre-lins-14b190274/">Alexandre Lins</a>.
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: hsl(0, 0%, 94%);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Main */
+.container {
+    width: 800px;
+    height: 560px;
+    background-color: white;
+    border-radius: 20px 20px 200px 20px;
+}
+
+.form-container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0 3rem 3rem;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: hsl(0, 0%, 45%);
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 0.3rem;
+}
+
+input {
+    font-size: 32px;
+    width: 150px;
+    padding: 1rem;
+    border: 1px solid hsl(0, 0%, 0%, 0.2);
+    border-radius: 5px;
+}
+
+input::placeholder{
+    font-weight: 700;
+    color: hsl(0, 0%, 60%);
+}
+
+.active {
+    font-size: 12px;
+    color: hsl(0.37,100%,68.43%);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.separator-container {
+    padding: 0 6rem 0 3rem;
+}
+
+.line {
+    border-bottom: 1px solid hsl(0, 0%, 0%, 0.2);
+}
+
+.arrow-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: hsl(259, 100%, 65%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -40px;
+    right: -610px;
+    cursor: pointer;
+}
+
+.result-container {
+   margin-top: -80px;
+   margin-left: 3rem;
+   font-style: italic;
+   font-weight: 700;
+}
+
+.result-span {
+    color: hsl(259, 100%, 65%);
+}
+
+.results {
+    font-size: 80px;
+}
+
+/* Footer */
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+} 
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
