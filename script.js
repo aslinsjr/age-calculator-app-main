@@ -14,11 +14,18 @@ submitBtn.addEventListener("click", ()=> {
 
     const ageInput = document.querySelector("#year");
 
-    const userAge = actualAge - ageInput.value;
+    let userAge = actualAge - ageInput.value;
 
     const monthInput = document.querySelector("#month");
 
-    const userMonth = actualMonth - monthInput.value;
+    let userMonth = "";
+
+    if(monthInput.value >= (actualMonth+1)){
+        userAge = (actualAge - ageInput.value) - 1;
+        userMonth = (actualMonth-monthInput.value)+12;
+    }else{
+        userMonth = actualMonth - monthInput.value;
+    }
 
     const dayInput = document.querySelector("#day");
 
