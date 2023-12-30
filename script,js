@@ -181,6 +181,10 @@ submitBtn.addEventListener("click", (e)=> {
 
         ageError.innerHTML = "Must be in the past";
     }
+
+    if(userMonth >= 12) {
+        userAge = userAge + 1;
+    }
     
     
     // Print Result
