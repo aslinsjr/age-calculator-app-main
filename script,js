@@ -15,13 +15,21 @@ const yearSpan = document.querySelector("#years-value");
 const monthSpan = document.querySelector("#months-value");
 const daySpan = document.querySelector("#days-value");
 
-// // Error Span
+// Error Span
 const dayError = document.querySelector("#day-error");
 const monthError = document.querySelector("#month-error");
 const ageError = document.querySelector("#age-error");
 
+// Label Input
 
-submitBtn.addEventListener("click", ()=> {
+const dayLabel = document.querySelector("#day-label");
+const monthLabel = document.querySelector("#month-label");
+const yearLabel = document.querySelector("#year-label");
+
+
+submitBtn.addEventListener("click", (e)=> {
+
+    e.preventDefault()
     
     function calcAge(actual, birth, coefficient1, coefficient2) {
         return ((actual - birth) + coefficient1) - coefficient2
@@ -74,19 +82,106 @@ submitBtn.addEventListener("click", ()=> {
     
     validationDay(actualDay, dayInput.value)
     
-    const userDay = calcAge(actualDay, dayInput.value, dayCoefficient, 0)
+    const dayInputValue = dayInput.value;
+
+    dayLabel.style.color = "hsl(0, 0%, 45%)";
+
+    dayInput.style.border = "1px solid hsl(0, 0%, 0%, 0.2)"
+
+    dayError.innerHTML = "";
+
+    let userDay = "--"
+
+    if(dayInputValue){
+        userDay = calcAge(actualDay, dayInput.value, dayCoefficient, 0)
+    }else{
+        dayLabel.style.color = "red";
+
+        dayInput.style.border = "1px solid red"
+
+        dayError.innerHTML = "This field is required"
+    }
+
+    if(dayInputValue > 31) {
+        dayLabel.style.color = "red";
+
+        dayInput.style.border = "1px solid red"
+        
+        userDay = "--"
+
+        dayError.innerHTML = "Must be a valid day"
+    }
+    
     
     // Month
     validationMonth2(actualDay , dayInput.value)
     
     validationMonth1(actualMonth, monthInput.value)
-    
-    const userMonth = calcAge(actualMonth, monthInput.value, monthCoefficient1, monthCoefficient2)
-    
+
+    const monthInputValue = monthInput.value;
+
+    monthLabel.style.color = "hsl(0, 0%, 45%)";
+
+   monthInput.style.border = "1px solid hsl(0, 0%, 0%, 0.2)"
+
+    monthError.innerHTML = "";
+
+    let userMonth = "--"
+
+    if(monthInputValue){
+        userMonth = calcAge(actualMonth, monthInput.value, monthCoefficient1, monthCoefficient2);
+    }else{
+        monthLabel.style.color = "red";
+
+        monthInput.style.border = "1px solid red"
+
+        monthError.innerHTML = "This field is required"
+
+    }
+
+    if(monthInputValue > 12) {
+        monthLabel.style.color = "red";
+
+        monthInput.style.border = "1px solid red"
+
+        userMonth= "--"
+
+        monthError.innerHTML = "Must be a valid month"
+    }
+
     // Age
     validationYear(actualMonth, monthInput.value)
+
+    const ageInputValue = ageInput.value;
+
+    yearLabel.style.color = "hsl(0, 0%, 45%)";
+
+    ageInput.style.border = "1px solid hsl(0, 0%, 0%, 0.2)"
+
+    ageError.innerHTML = "";
+
+    let userAge = "--"
+
+    if(ageInputValue){
+        userAge  = calcAge(actualAge, ageInput.value, ageCoefficient, 0);
+    }else{
+        yearLabel.style.color = "red";
+
+        ageInput.style.border = "1px solid red";
+
+        ageError.innerHTML = "This field is required";
+    }
+
+    if(ageInputValue > actualAge) {
+        yearLabel.style.color = "red";
+
+        ageInput.style.border = "1px solid red"
+
+        userAge= "--"
+
+        ageError.innerHTML = "Must be in the past";
+    }
     
-    const userAge = calcAge(actualAge, ageInput.value, ageCoefficient, 0)
     
     // Print Result
         yearSpan.innerHTML = userAge;
@@ -98,10 +193,3 @@ submitBtn.addEventListener("click", ()=> {
 submitBtn.addEventListener("dblclick", ()=> {
     window.location.reload();
 })
-
-
-
-
-
-
-
